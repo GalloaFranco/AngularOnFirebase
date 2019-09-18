@@ -10,6 +10,8 @@ import {ProductDumbComponent} from './components/products/product-dumb/product-d
 import {ProductService} from './services/product.service';
 import {ProductComponent} from './components/products/product/product.component';
 import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ToastrModule.forRoot(), // De esta manera indico que se va a ejecutar en toda mi aplicacion.
     FormsModule
   ],
   providers: [ProductService],
