@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'Here you can add yout apikey code',
+    apiKey: 'AIzaSyDA3UMt-V-Xbdmfd5GLVee0B5GcNzhZ-Nk',
     authDomain: 'angularonfire-base.firebaseapp.com',
     databaseURL: 'https://angularonfire-base.firebaseio.com',
     projectId: 'angularonfire-base',
