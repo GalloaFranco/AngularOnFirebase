@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   updateProduct(product: Product) {
-    this.products.update(product.key, {
+    this.products.update(product.$key, {
       name: product.name,
       category: product.category,
       location: product.location,
@@ -34,7 +34,7 @@ export class ProductService {
     });
   }
 
-  deleteProduct(key: string) {
-    this.products.remove(key);
+  deleteProduct($key: string) {
+    this.products.remove($key);
   }
 }

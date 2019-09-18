@@ -1,1 +1,21 @@
-
+<div class="card mt-5">
+  <div class="card-body">
+    <h3 class="text-center jumbotron">Products</h3>
+    <table class="table table-sm table-hover">
+      <tbody>
+      <tr *ngFor="let product of productList">
+        <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.location}}</td>
+        <a class="btn btn-secondary text-white" (click)="onEdit(product)">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a class="btn btn-danger text-white" (click)="onDelete(product.$key)">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
