@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AngularOnFire-base"
+    }
+  },
+  "defaultProject": "AngularOnFire-base",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -46,4 +46,10 @@ testem.log
 Thumbs.db
 
 # Environment with firebase data
-/src/environments/*.ts
+*/environments
+
+### Firebase ###
+/.firebaserc
+
+### Firebase Patch ###
+.firebase/
