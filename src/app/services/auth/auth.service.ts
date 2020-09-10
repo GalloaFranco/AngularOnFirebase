@@ -1,46 +1,48 @@
-import {Injectable} from '@angular/core';
-import {auth} from 'firebase/app';
-import {User} from '@model/user';
-import {Router} from '@angular/router';
-import {AngularFireAuth} from '@angular/fire/auth';
+import { Injectable, NgZone } from '@angular/core';
+import { User } from '@model/user';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: User;
+  private user: User;
 
   constructor(
-    public router: Router,
-    public afAuth: AngularFireAuth,
+    private router: Router,
+    private ngZone: NgZone,
+    private firebaseAuth: AngularFireAuth,
+    private toastr: ToastrService
   ) {
-    this.afAuth.authState.subscribe(user => {
-      console.log(`USER: ${user.toJSON()}`);
+    this.firebaseAuth.authState.subscribe(user => {
       this.user = user;
     });
   }
 
-  // Firebase SignInWithPopup
-  OAuthProvider(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((res) => {
-          this.router.navigateByUrl('products');
-      }).catch((error) => {
-        window.alert(error);
+  signingWithGoogle() {
+    return this.OAuthProvider(new firebase.auth.GoogleAuthProvider())
+      .then().catch(error => {
+        console.error(error);
       });
   }
 
-  signinWithGoogle() {
-    return this.OAuthProvider(new auth.GoogleAuthProvider())
-      .then(() => {
-        console.log('Successfully logged in!');
-      }).catch(error => {
+  OAuthProvider(provider) {
+    return this.firebaseAuth.auth.signInWithPopup(provider)
+      .then((res) => {
+          this.ngZone.run(() => {
+           this.toastr.info(`${res.user.displayName}`, 'Welcome', {timeOut: 1000});
+           this.router.navigateByUrl('products');
+          });
+      }).catch((error) => {
         console.error(error);
       });
   }
 
   signOut() {
-    return this.afAuth.auth.signOut().then(() => {
+    return this.firebaseAuth.auth.signOut().then(() => {
       this.router.navigateByUrl('login');
     });
   }
