@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-mf-5">
-      <app-product></app-product>
+      <app-product-form (submitEventEmitter)="onSubmit($event)"
+                        (resetEventEmitter)="resetForm()"
+                        (getProductsEventEmitter)="getProducts()"
+      ></app-product-form>
     </div>
     <div class="col-mf-5">
-      <app-product-dumb></app-product-dumb>
+      <app-product-dumb [productList]="productList"
+                        (editProductEventEmitter)="onEdit($event)"
+                        (deleteEventEmitter)="onDelete($event)"
+      ></app-product-dumb>
     </div>
   </div>
 </div>

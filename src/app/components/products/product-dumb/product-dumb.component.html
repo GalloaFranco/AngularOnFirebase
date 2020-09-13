@@ -9,10 +9,10 @@
         <td>{{product.price}}</td>
         <td>{{product.location}}</td>
        <td> </td>
-        <a class="btn btn-secondary text-white" (click)="onEdit(product)">
+        <a class="btn btn-secondary text-white" (click)="onEditEvent(product)">
           <i class="fas fa-edit"></i>
         </a>
-        <a class="btn btn-danger text-white" (click)="onDelete(product.$key)">
+        <a class="btn btn-danger text-white" (click)="onDeleteEvent(product.$key)">
           <i class="fas fa-trash-alt"></i>
         </a>
       </tr>
