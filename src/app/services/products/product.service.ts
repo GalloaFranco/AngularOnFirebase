@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Product } from '@model/product';
-import { ProductsModule } from '@component/products/products.module';
 
 @Injectable({
-  providedIn: ProductsModule
+  providedIn: 'root'
 })
 export class ProductService {
 

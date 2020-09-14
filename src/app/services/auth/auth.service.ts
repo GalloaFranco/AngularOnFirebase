@@ -23,10 +23,7 @@ export class AuthService {
   }
 
   signingWithGoogle() {
-    return this.OAuthProvider(new firebase.auth.GoogleAuthProvider())
-      .then().catch(error => {
-        console.error(error);
-      });
+    return this.OAuthProvider(new firebase.auth.GoogleAuthProvider());
   }
 
   OAuthProvider(provider) {

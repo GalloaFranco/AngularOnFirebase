@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductsComponent } from '@component/products/products.component';
+import { ProductsSmartComponent } from '@component/products/product-smart/products-smart.component';
 import { ProductFormComponent } from '@component/products/product-form/product-form.component';
 import { ProductDumbComponent } from '@component/products/product-dumb/product-dumb.component';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
+    ProductsSmartComponent,
     ProductFormComponent,
     ProductDumbComponent
   ],
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   exports: [
-    ProductsComponent
+    ProductsSmartComponent
   ]
 })
 export class ProductsModule { }

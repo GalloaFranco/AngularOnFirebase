@@ -4,10 +4,10 @@ import { Subscription } from 'rxjs';
 import { Product } from '@model/product';
 
 @Component({
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  templateUrl: './products-smart.component.html',
+  styleUrls: ['./products-smart.component.css']
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsSmartComponent implements OnInit, OnDestroy {
 
   productList: Product[];
   productsSubscription: Subscription;
