@@ -2,13 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductService } from '@services/products/product.service';
 import { NgForm } from '@angular/forms';
 import { Product } from '@model/product';
-
-function ProductFormEmittersInit(constructor: Function) {
-  console.log(constructor.prototype.name);
-  constructor.prototype.submitEventEmitter = new EventEmitter<Product>();
-  constructor.prototype.resetEventEmitter = new EventEmitter<void>();
-  constructor.prototype.getProductsEventEmitter = new EventEmitter<void>();
-}
+import { ProductFormEmittersInit } from '@component/products/utils/decorators';
 
 @Component({
   selector: 'app-product-form',
