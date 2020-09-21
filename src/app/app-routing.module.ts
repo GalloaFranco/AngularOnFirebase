@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from '@component/login/login/login.component';
+import { LoginSmartComponent } from '@component/login/login-smart/login-smart.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginSmartComponent
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginSmartComponent
   },
   {
     path: 'products',
     loadChildren: () => import('./components/products/products.module').then(module => module.ProductsModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./components/login/login.module').then(module => module.LoginModule)
   }
 ];
 
